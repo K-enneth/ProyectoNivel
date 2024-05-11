@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - Interactuable
+  - rot
+  - Stop
   layers:
   - Default
   - TransparentFX

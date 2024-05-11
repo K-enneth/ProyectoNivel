@@ -19,9 +19,9 @@ public class Interactuable : MonoBehaviour
     {
         if(isEnter && Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Joystick1Button17))
         {
-            isEnter = false;
             presCanbas.gameObject.SetActive(false);
             _bc.enabled = false;
+            StartCoroutine(ChangeFalse());
         }
     }
 
@@ -35,5 +35,11 @@ public class Interactuable : MonoBehaviour
     {
         isEnter = false;
         presCanbas.gameObject.SetActive(false);
+    }
+
+    IEnumerator ChangeFalse()
+    {
+        yield return new WaitForSeconds(1f);
+        isEnter = false;
     }
 }
