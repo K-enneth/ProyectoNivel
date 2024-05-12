@@ -19,6 +19,7 @@ public class SpownMonster : MonoBehaviour
     {
         if (inter.isEnter && Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Joystick1Button17))
         {
+            inter.light.SetActive(true);
             Instantiate(monster, spownPos);
         }
     }

@@ -17,6 +17,7 @@ public class JointDestructor : MonoBehaviour
     {
         if (inter.isEnter && Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Joystick1Button17))
         {
+            inter.light.SetActive(true);
             Destroy(fj.gameObject);
         }
     }

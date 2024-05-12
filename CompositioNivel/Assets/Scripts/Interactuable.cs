@@ -8,6 +8,7 @@ public class Interactuable : MonoBehaviour
     public bool isEnter = false;
     [SerializeField] Canvas presCanbas;
     private BoxCollider _bc;
+    public GameObject light;
     // Start is called before the first frame update
     void Start()
     {
