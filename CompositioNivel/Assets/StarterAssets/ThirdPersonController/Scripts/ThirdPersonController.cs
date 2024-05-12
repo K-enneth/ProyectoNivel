@@ -159,6 +159,7 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            Interact();
         }
 
         private void LateUpdate()
@@ -346,6 +347,13 @@ namespace StarterAssets
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+        }
+
+        private void Interact()
+        {
+            if (_input.interact)
+                Debug.Log("ispress");
+                
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
