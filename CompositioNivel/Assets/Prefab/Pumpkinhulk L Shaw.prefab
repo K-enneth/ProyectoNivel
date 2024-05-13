@@ -1127,6 +1127,7 @@ MonoBehaviour:
   RotDir: -90
   anim: {fileID: 0}
   rb: {fileID: 0}
+  aso: {fileID: 5240950965932633571}
 --- !u!82 &5240950965932633571
 AudioSource:
   m_ObjectHideFlags: 0

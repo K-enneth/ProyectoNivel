@@ -7,6 +7,7 @@ public class RotateAndStop : MonoBehaviour
     public float RotDir;
     [SerializeField] private Animator anim;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private AudioSource aso;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -20,6 +21,7 @@ public class RotateAndStop : MonoBehaviour
         }
         if(other.tag == "Stop")
         {
+            aso.Stop();
             Debug.Log("si se");
             anim.applyRootMotion = false;
             rb.constraints = RigidbodyConstraints.FreezePosition;

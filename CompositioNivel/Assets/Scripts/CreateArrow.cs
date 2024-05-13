@@ -22,7 +22,7 @@ public class CreateArrow : MonoBehaviour
     private void Start()
     {
         posicionInicial = col.transform.position;
-        destino = new Vector3(col.transform.position.x, col.transform.position.y +1f, col.transform.position.z);
+        destino = new Vector3(col.transform.position.x, col.transform.position.y +0.65f, col.transform.position.z);
         rotacionInicialA = a.transform.rotation;
         rotacionInicialCol = col.transform.rotation;
         rotacionFinal = a.transform.rotation * Quaternion.Euler(180, 0, 0); 
