@@ -6,6 +6,7 @@ public class JointDestructor : MonoBehaviour
 {
     [SerializeField] private FixedJoint fj;
     public Interactuable inter;
+    public AudioSource aso;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class JointDestructor : MonoBehaviour
     {
         if (inter.isEnter && Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Joystick1Button17))
         {
+            aso.Play();
             inter.light.SetActive(true);
             Destroy(fj.gameObject);
         }

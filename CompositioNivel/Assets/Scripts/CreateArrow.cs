@@ -14,6 +14,8 @@ public class CreateArrow : MonoBehaviour
     private Quaternion rotacionFinalcol;
     public Vector3 destino;
     private Vector3 posicionInicial;
+    public AudioSource ad;
+    public bool cansound = true;
 
 
     private float tiempoInicio;
@@ -23,8 +25,8 @@ public class CreateArrow : MonoBehaviour
         destino = new Vector3(col.transform.position.x, col.transform.position.y +1f, col.transform.position.z);
         rotacionInicialA = a.transform.rotation;
         rotacionInicialCol = col.transform.rotation;
-        rotacionFinal = a.transform.rotation * Quaternion.Euler(180, 0, 0); // Rotar 180 grados alrededor del eje Y
-        rotacionFinalcol = col.transform.rotation * Quaternion.Euler(-90, 0, 0); // Rotar 180 grados alrededor del eje Y
+        rotacionFinal = a.transform.rotation * Quaternion.Euler(180, 0, 0); 
+        rotacionFinalcol = col.transform.rotation * Quaternion.Euler(-90, 0, 0); 
         tiempoInicio = Time.time;
     }
 
@@ -32,9 +34,13 @@ public class CreateArrow : MonoBehaviour
     {
         if (canRot)
         {
+            if(cansound)
+            {
+                ad.Play();
+                cansound = false;
+            }
             // Calcular la fracción de tiempo transcurrido
             float fraccionTiempo = (Time.time - tiempoInicio) * velocidadRotacion;
-
             // Interpolar entre las rotaciones inicial y final
             col.transform.position = Vector3.Lerp(posicionInicial, destino, fraccionTiempo);
             a.transform.rotation = Quaternion.Lerp(rotacionInicialA, rotacionFinal, fraccionTiempo);
@@ -43,6 +49,7 @@ public class CreateArrow : MonoBehaviour
             // Detener la rotación cuando se alcanza la rotación final
             if (fraccionTiempo >= 1.0f)
             {
+                ad.Stop();
                 enabled = false; // Desactivar este script
             }
         }

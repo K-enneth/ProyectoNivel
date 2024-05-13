@@ -9,6 +9,7 @@ public class Interactuable : MonoBehaviour
     [SerializeField] Canvas presCanbas;
     private BoxCollider _bc;
     public GameObject light;
+    public AudioSource aso;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,7 @@ public class Interactuable : MonoBehaviour
     {
         if(isEnter && Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown(KeyCode.Joystick1Button17))
         {
+            aso.Play();
             presCanbas.gameObject.SetActive(false);
             _bc.enabled = false;
             StartCoroutine(ChangeFalse());
